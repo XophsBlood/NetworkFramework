@@ -13,6 +13,10 @@
 		086EC930248F9893000DC746 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC92F248F9893000DC746 /* HTTPClient.swift */; };
 		086EC93A248FB616000DC746 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC939248FB616000DC746 /* NetworkManager.swift */; };
 		086EC93C248FC3F1000DC746 /* ReponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC93B248FC3F1000DC746 /* ReponseTests.swift */; };
+		086EC940248FD970000DC746 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC93F248FD970000DC746 /* MockURLSession.swift */; };
+		086EC942248FDADF000DC746 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC941248FDADF000DC746 /* URLSessionProtocol.swift */; };
+		086EC944248FDB81000DC746 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC943248FDB81000DC746 /* URLSessionDataTaskProtocol.swift */; };
+		086EC946248FDDB1000DC746 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 		086EC92F248F9893000DC746 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		086EC939248FB616000DC746 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		086EC93B248FC3F1000DC746 /* ReponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReponseTests.swift; sourceTree = "<group>"; };
+		086EC93F248FD970000DC746 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		086EC941248FDADF000DC746 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		086EC943248FDB81000DC746 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 				086EC904248F97B1000DC746 /* Info.plist */,
 				086EC939248FB616000DC746 /* NetworkManager.swift */,
 				086EC92F248F9893000DC746 /* HTTPClient.swift */,
+				086EC941248FDADF000DC746 /* URLSessionProtocol.swift */,
+				086EC943248FDB81000DC746 /* URLSessionDataTaskProtocol.swift */,
 			);
 			path = NetworkModule;
 			sourceTree = "<group>";
@@ -91,6 +101,8 @@
 				086EC90E248F97B1000DC746 /* NetworkModuleTests.swift */,
 				086EC910248F97B1000DC746 /* Info.plist */,
 				086EC93B248FC3F1000DC746 /* ReponseTests.swift */,
+				086EC93F248FD970000DC746 /* MockURLSession.swift */,
+				086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */,
 			);
 			path = NetworkModuleTests;
 			sourceTree = "<group>";
@@ -205,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086EC942248FDADF000DC746 /* URLSessionProtocol.swift in Sources */,
 				086EC93A248FB616000DC746 /* NetworkManager.swift in Sources */,
+				086EC944248FDB81000DC746 /* URLSessionDataTaskProtocol.swift in Sources */,
 				086EC930248F9893000DC746 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086EC940248FD970000DC746 /* MockURLSession.swift in Sources */,
+				086EC946248FDDB1000DC746 /* MockURLSessionDataTask.swift in Sources */,
 				086EC93C248FC3F1000DC746 /* ReponseTests.swift in Sources */,
 				086EC90F248F97B1000DC746 /* NetworkModuleTests.swift in Sources */,
 			);

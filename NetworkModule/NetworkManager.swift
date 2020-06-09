@@ -10,21 +10,25 @@ import Foundation
 
 enum UnexpectedError: Error {
     case unexpected
-    case expected(Error)
 }
 
 class NetworkManager: HTTPClient {
     
+    private let session: URLSessionProtocol
+    
+    init(session: URLSessionProtocol) {
+        self.session = session
+    }
+    
     func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> ()) {
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
-        let task = session.dataTask(with: url, completionHandler: { [weak self] (data, response, error) -> Void in
+        let task = session.dataTask(with: NSURLRequest(url: url), completionHandler: { [weak self] (data, response, error) -> Void in
             
             let result = (data, response, error)
             
             switch result {
             case let (nil, nil, error):
                 if let error = error {
-                    completion(.failure(UnexpectedError.expected(error)))
+                    completion(.failure(error))
                 } else {
                     completion(.failure(UnexpectedError.unexpected))
                 }
@@ -35,6 +39,7 @@ class NetworkManager: HTTPClient {
                     completion(.failure(UnexpectedError.unexpected))
                 }
             default:
+                print("lol")
                 completion(.failure(UnexpectedError.unexpected))
             }
         })

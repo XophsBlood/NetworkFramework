@@ -9,42 +9,228 @@
 import XCTest
 @testable import NetworkModule
 
-class ReponseTests: XCTestCase {
-    let expectation = XCTestExpectation(description: "Download https://jsonplaceholder.typicode.com/posts/1")
-    
-    var testHTTPClient: HTTPClient!
-    var url: URL!
+enum SomeError: Error {
+    case unexpected
+}
 
+class HttpClientTests: XCTestCase {
+    var networkManager: NetworkManager!
+    let session = MockURLSession()
+    
     override func setUp() {
         super.setUp()
-        url = URL(string: "https://jsonplaceholder.typicode.com/posts/1")
-        testHTTPClient = NetworkManager()
+        networkManager = NetworkManager(session: session)
     }
-
+    
     override func tearDown() {
         super.tearDown()
-        url = nil
-        testHTTPClient = nil
+        networkManager = nil
     }
-
-    func testGetDataAndHTTPURLResponse() throws {
-        testHTTPClient.get(from: url) { [weak self] (result: Result) in
+    
+    // Data:Value Response:Value Error:nil
+    func test_get_should_return_Data_and_Reponse() {
+        let expectedData = "{}".data(using: .utf8)
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextData = expectedData
+        session.nextResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
             switch result {
-            case .success((_, _)): break
-                
-            case .failure(_):
+            case let .success((data, response)):
+                actualData = data
+                actualResponse = response
+            default:
                 XCTFail()
             }
-            self?.expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10.0)
+        XCTAssertNotNil(actualData)
+        XCTAssertNotNil(actualResponse)
+        XCTAssertNil(actualError)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // Data:nil Response:nil Error:nil
+    func test_get_should_not_return_Error() {
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextError = nil
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
         }
+        
+        guard let error = actualError as? NetworkModule.UnexpectedError else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertNil(actualData)
+        XCTAssertNil(actualResponse)
+        XCTAssertNotNil(actualError)
     }
-
+    
+    // Data:nil Response:nil Error:Value
+    func test_get_should_return_Error() {
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextError = SomeError.unexpected
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
+        }
+        
+        if let error = actualError as? NetworkModule.UnexpectedError {
+            XCTFail()
+            return
+        } else {
+            XCTAssertNil(actualData)
+            XCTAssertNil(actualResponse)
+            XCTAssertNotNil(actualError)
+        }
+    
+    }
+    
+    // Data:nil Response:Value Error:Value
+    func test_get_should_return_only_Reponse() {
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
+        }
+        XCTAssertNil(actualData)
+        XCTAssertNil(actualResponse)
+        XCTAssertNotNil(actualError)
+    }
+    
+    // Data:Value Response:nil Error:nil
+    func test_get_should_return_only_Data() {
+        let expectedData = "{}".data(using: .utf8)
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextData = expectedData
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
+        }
+        XCTAssertNil(actualData)
+        XCTAssertNil(actualResponse)
+        XCTAssertNotNil(actualError)
+    }
+    
+    // Data:Value Response:nil Error:Value
+    func test_get_should_return_Data_and_Error() {
+        let expectedData = "{}".data(using: .utf8)
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextData = expectedData
+        session.nextError = SomeError.unexpected
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
+        }
+        XCTAssertNil(actualData)
+        XCTAssertNil(actualResponse)
+        XCTAssertNotNil(actualError)
+    }
+    
+    // Data:Value Response:Value Error:Value
+    func test_get_should_return_Data_Response_And_Error() {
+        let expectedData = "{}".data(using: .utf8)
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextData = expectedData
+        session.nextError = SomeError.unexpected
+        session.nextResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
+        }
+        XCTAssertNil(actualData)
+        XCTAssertNil(actualResponse)
+        XCTAssertNotNil(actualError)
+    }
+    
+    // Data:nil Response:Value Error:Value
+    func test_get_should_return_Response_and_Error() {
+        let url = URL(string: "http://mockurl")!
+        
+        session.nextResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
+        session.nextError = SomeError.unexpected
+        
+        var actualData: Data?
+        var actualResponse: HTTPURLResponse?
+        var actualError: Error?
+        networkManager.get(from: url) { (result) in
+            switch result {
+            case let .failure(error):
+                
+                actualError = error
+            default:
+                XCTFail()
+            }
+        }
+        XCTAssertNil(actualData)
+        XCTAssertNil(actualResponse)
+        XCTAssertNotNil(actualError)
+    }
+    
 }
