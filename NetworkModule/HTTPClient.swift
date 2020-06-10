@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol HTTPClient {
+public protocol HTTPClient {
     
-    func get(from url: URL, completion: @escaping (Swift.Result<(Data,HTTPURLResponse), Error>) -> ())
+    func get(from url: URL, completion: @escaping (Swift.Result<(Data,HTTPURLResponse), Error>) -> ()) -> URLSessionDataTaskProtocol
     
 }

@@ -16,18 +16,10 @@ class MockURLSession: URLSessionProtocol {
     var nextError: Error?
     var nextResponse: HTTPURLResponse?
     
-    
-//    func successHttpURLResponse(request: URLRequest) {
-//        
-//        nextResponse = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
-//    }
-    
     func dataTask(with request: NSURLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
-        if let url = request.url {
-            let request = URLRequest(url: url)
-//            successHttpURLResponse(request: request)
-            completionHandler(nextData, nextResponse, nextError)
-        }
+        
+        completionHandler(nextData, nextResponse, nextError)
+        
         return nextDataTask
     }
 

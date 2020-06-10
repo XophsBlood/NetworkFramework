@@ -8,42 +8,36 @@
 
 import Foundation
 
-enum UnexpectedError: Error {
+public enum UnexpectedError: Error {
     case unexpected
 }
 
-class NetworkManager: HTTPClient {
+public class NetworkManager: HTTPClient {
     
     private let session: URLSessionProtocol
     
-    init(session: URLSessionProtocol) {
+    public init(session: URLSessionProtocol) {
         self.session = session
     }
     
-    func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> ()) {
-        let task = session.dataTask(with: NSURLRequest(url: url), completionHandler: { [weak self] (data, response, error) -> Void in
-            
-            let result = (data, response, error)
-            
-            switch result {
-            case let (nil, nil, error):
+    public func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> ()) -> URLSessionDataTaskProtocol {
+        
+        let task = session.dataTask(with: NSURLRequest(url: url), completionHandler: { (data, response, error) -> Void in
+            completion(Result {
                 if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.failure(UnexpectedError.unexpected))
+                    throw error
+                } else if let data = data, let response = response as? HTTPURLResponse {
+                    return (data, response)
                 }
-            case let (data, response, nil):
-                if let data = data, let response = response as? HTTPURLResponse {
-                    completion(.success((data, response)))
-                } else {
-                    completion(.failure(UnexpectedError.unexpected))
-                }
-            default:
-                print("lol")
-                completion(.failure(UnexpectedError.unexpected))
-            }
+                throw UnexpectedError.unexpected
+            })
+            
         })
+        
         task.resume()
+        
+        return task
     }
+    
     
 }

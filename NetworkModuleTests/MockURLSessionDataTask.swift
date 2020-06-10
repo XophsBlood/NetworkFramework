@@ -10,8 +10,8 @@ import Foundation
 @testable import NetworkModule
 
 class MockURLSessionDataTask: URLSessionDataTaskProtocol {
-    private (set) var resumeWasCalled = false
+    private (set) var counter = 0
     func resume() {
-        resumeWasCalled = true
+        counter += 1
     }
 }
