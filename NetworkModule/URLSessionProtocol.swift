@@ -12,14 +12,14 @@ public protocol URLSessionProtocol {
     
     typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
     
-    func dataTask(with request: NSURLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
+    func dataTask(request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
     
 }
 
 extension URLSession: URLSessionProtocol {
     
-    public func dataTask(with request: NSURLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
-        return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTaskProtocol
+    public func dataTask(request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+        return dataTask(with: request, completionHandler: completionHandler)
     }
     
 }

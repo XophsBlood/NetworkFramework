@@ -27,17 +27,17 @@ class HttpClientTests: XCTestCase {
     func test_get_should_return_Data_and_Reponse() {
         let myExpectation = expectation(description: "")
         let (networkManager, session) = getNetworkManager()
-
+        let urlRequest = URLRequest(url: url)
         
         let expectedData = "{}".data(using: .utf8)
         
-        
+
         session.nextData = expectedData
         session.nextResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
         
         var actualData: Data?
         var actualResponse: HTTPURLResponse?
-        let datatask = networkManager.get(from: url) { (result) in
+        let datatask = networkManager.get(from: urlRequest) { (result) in
             switch result {
             case let .success((data, response)):
                 actualData = data
@@ -63,6 +63,7 @@ class HttpClientTests: XCTestCase {
     
     // Data:nil Response:nil Error:Value
     func test_get_should_return_Error() {
+        let urlRequest = URLRequest(url: url)
         let myExpectation = expectation(description: "")
         let (networkManager, session) = getNetworkManager()
         
@@ -70,7 +71,7 @@ class HttpClientTests: XCTestCase {
         session.nextError = sendError
         var actualError: Error?
         
-        let datatask = networkManager.get(from: url) { (result) in
+        let datatask = networkManager.get(from: urlRequest) { (result) in
             switch result {
             case let .failure(error):
                 actualError = error
@@ -144,12 +145,13 @@ class HttpClientTests: XCTestCase {
     }
     
     func resultForError(data: Data?, reponse: HTTPURLResponse?, error: Error?, session: MockURLSession, networkManager: HTTPClient) {
+        let urlRequest = URLRequest(url: url)
         session.nextResponse = reponse
         session.nextError = error
         session.nextData = data
         let myExpectation = expectation(description: "")
         
-        let datatask = networkManager.get(from: url) { (result) in
+        let datatask = networkManager.get(from: urlRequest) { (result) in
             switch result {
             case let .failure(error):
                 XCTAssertNotNil(error)

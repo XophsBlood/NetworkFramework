@@ -12,6 +12,8 @@ public enum UnexpectedError: Error {
     case unexpected
 }
 
+
+
 public class NetworkManager: HTTPClient {
     
     private let session: URLSessionProtocol
@@ -20,9 +22,9 @@ public class NetworkManager: HTTPClient {
         self.session = session
     }
     
-    public func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> ()) -> URLSessionDataTaskProtocol {
+    public func get(from urlRequest: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> ()) -> URLSessionDataTaskProtocol {
         
-        let task = session.dataTask(with: NSURLRequest(url: url), completionHandler: { (data, response, error) -> Void in
+        let task = session.dataTask(request: urlRequest, completionHandler: { (data, response, error) -> Void in
             completion(Result {
                 if let error = error {
                     throw error
@@ -41,3 +43,6 @@ public class NetworkManager: HTTPClient {
     
     
 }
+
+
+

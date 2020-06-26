@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0800993824A3675100B482DB /* HTTPTokenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800993724A3675100B482DB /* HTTPTokenLoader.swift */; };
+		0800993A24A3678600B482DB /* TokenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800993924A3678600B482DB /* TokenLoader.swift */; };
+		0800993E24A38D1A00B482DB /* AuthHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800993D24A38D1A00B482DB /* AuthHTTPClient.swift */; };
+		0800994224A3922600B482DB /* ImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994124A3922600B482DB /* ImagesLoader.swift */; };
+		0800994424A393D000B482DB /* HTTPImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994324A393D000B482DB /* HTTPImagesLoader.swift */; };
+		0800994924A60CDF00B482DB /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994824A60CDF00B482DB /* AuthResult.swift */; };
+		0800994B24A60DE200B482DB /* ImagesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994A24A60DE200B482DB /* ImagesResult.swift */; };
+		0800994E24A6112100B482DB /* HTTPImageDetailsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994D24A6112100B482DB /* HTTPImageDetailsLoader.swift */; };
+		0800995024A6114100B482DB /* ImageDetailsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994F24A6114100B482DB /* ImageDetailsLoader.swift */; };
+		0800995224A6121A00B482DB /* ImageDetailsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800995124A6121A00B482DB /* ImageDetailsResult.swift */; };
+		0800995A24A613D400B482DB /* IntegratedUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800995924A613D400B482DB /* IntegratedUnitTests.swift */; };
+		0800995C24A613D400B482DB /* NetworkModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* NetworkModule.framework */; };
 		086EC90A248F97B1000DC746 /* NetworkModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* NetworkModule.framework */; };
 		086EC90F248F97B1000DC746 /* NetworkModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC90E248F97B1000DC746 /* NetworkModuleTests.swift */; };
 		086EC911248F97B1000DC746 /* NetworkModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 086EC903248F97B1000DC746 /* NetworkModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0800995D24A613D400B482DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 086EC8F7248F97B1000DC746 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 086EC8FF248F97B1000DC746;
+			remoteInfo = NetworkModule;
+		};
 		086EC90B248F97B1000DC746 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 086EC8F7248F97B1000DC746 /* Project object */;
@@ -30,6 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0800993724A3675100B482DB /* HTTPTokenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTokenLoader.swift; sourceTree = "<group>"; };
+		0800993924A3678600B482DB /* TokenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenLoader.swift; sourceTree = "<group>"; };
+		0800993D24A38D1A00B482DB /* AuthHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHTTPClient.swift; sourceTree = "<group>"; };
+		0800994124A3922600B482DB /* ImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
+		0800994324A393D000B482DB /* HTTPImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPImagesLoader.swift; sourceTree = "<group>"; };
+		0800994824A60CDF00B482DB /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
+		0800994A24A60DE200B482DB /* ImagesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesResult.swift; sourceTree = "<group>"; };
+		0800994D24A6112100B482DB /* HTTPImageDetailsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPImageDetailsLoader.swift; sourceTree = "<group>"; };
+		0800994F24A6114100B482DB /* ImageDetailsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsLoader.swift; sourceTree = "<group>"; };
+		0800995124A6121A00B482DB /* ImageDetailsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsResult.swift; sourceTree = "<group>"; };
+		0800995724A613D400B482DB /* IntegratedUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegratedUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0800995924A613D400B482DB /* IntegratedUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegratedUnitTests.swift; sourceTree = "<group>"; };
+		0800995B24A613D400B482DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086EC900248F97B1000DC746 /* NetworkModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		086EC903248F97B1000DC746 /* NetworkModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkModule.h; sourceTree = "<group>"; };
 		086EC904248F97B1000DC746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +78,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0800995424A613D400B482DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0800995C24A613D400B482DB /* NetworkModule.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		086EC8FD248F97B1000DC746 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,11 +104,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0800993F24A391FF00B482DB /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				0800993724A3675100B482DB /* HTTPTokenLoader.swift */,
+				0800993924A3678600B482DB /* TokenLoader.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		0800994024A3920C00B482DB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0800994124A3922600B482DB /* ImagesLoader.swift */,
+				0800994324A393D000B482DB /* HTTPImagesLoader.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0800994C24A6110200B482DB /* ImageDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0800994D24A6112100B482DB /* HTTPImageDetailsLoader.swift */,
+				0800994F24A6114100B482DB /* ImageDetailsLoader.swift */,
+			);
+			path = ImageDetails;
+			sourceTree = "<group>";
+		};
+		0800995824A613D400B482DB /* IntegratedUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0800995924A613D400B482DB /* IntegratedUnitTests.swift */,
+				0800995B24A613D400B482DB /* Info.plist */,
+			);
+			path = IntegratedUnitTests;
+			sourceTree = "<group>";
+		};
 		086EC8F6248F97B1000DC746 = {
 			isa = PBXGroup;
 			children = (
 				086EC902248F97B1000DC746 /* NetworkModule */,
 				086EC90D248F97B1000DC746 /* NetworkModuleTests */,
+				0800995824A613D400B482DB /* IntegratedUnitTests */,
 				086EC901248F97B1000DC746 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +155,7 @@
 			children = (
 				086EC900248F97B1000DC746 /* NetworkModule.framework */,
 				086EC909248F97B1000DC746 /* NetworkModuleTests.xctest */,
+				0800995724A613D400B482DB /* IntegratedUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +164,13 @@
 			isa = PBXGroup;
 			children = (
 				086EC903248F97B1000DC746 /* NetworkModule.h */,
+				0800994824A60CDF00B482DB /* AuthResult.swift */,
+				0800994A24A60DE200B482DB /* ImagesResult.swift */,
+				0800995124A6121A00B482DB /* ImageDetailsResult.swift */,
+				0800994C24A6110200B482DB /* ImageDetails */,
+				0800994024A3920C00B482DB /* Images */,
+				0800993F24A391FF00B482DB /* Token */,
+				0800993D24A38D1A00B482DB /* AuthHTTPClient.swift */,
 				086EC904248F97B1000DC746 /* Info.plist */,
 				086EC939248FB616000DC746 /* NetworkManager.swift */,
 				086EC92F248F9893000DC746 /* HTTPClient.swift */,
@@ -121,6 +206,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0800995624A613D400B482DB /* IntegratedUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0800995F24A613D400B482DB /* Build configuration list for PBXNativeTarget "IntegratedUnitTests" */;
+			buildPhases = (
+				0800995324A613D400B482DB /* Sources */,
+				0800995424A613D400B482DB /* Frameworks */,
+				0800995524A613D400B482DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0800995E24A613D400B482DB /* PBXTargetDependency */,
+			);
+			name = IntegratedUnitTests;
+			productName = IntegratedUnitTests;
+			productReference = 0800995724A613D400B482DB /* IntegratedUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		086EC8FF248F97B1000DC746 /* NetworkModule */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086EC914248F97B1000DC746 /* Build configuration list for PBXNativeTarget "NetworkModule" */;
@@ -167,6 +270,9 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Камиль Бакаев";
 				TargetAttributes = {
+					0800995624A613D400B482DB = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					086EC8FF248F97B1000DC746 = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
@@ -191,11 +297,19 @@
 			targets = (
 				086EC8FF248F97B1000DC746 /* NetworkModule */,
 				086EC908248F97B1000DC746 /* NetworkModuleTests */,
+				0800995624A613D400B482DB /* IntegratedUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0800995524A613D400B482DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		086EC8FE248F97B1000DC746 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,14 +327,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0800995324A613D400B482DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0800995A24A613D400B482DB /* IntegratedUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		086EC8FC248F97B1000DC746 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0800993A24A3678600B482DB /* TokenLoader.swift in Sources */,
+				0800994B24A60DE200B482DB /* ImagesResult.swift in Sources */,
 				086EC942248FDADF000DC746 /* URLSessionProtocol.swift in Sources */,
+				0800994224A3922600B482DB /* ImagesLoader.swift in Sources */,
 				086EC93A248FB616000DC746 /* NetworkManager.swift in Sources */,
+				0800994424A393D000B482DB /* HTTPImagesLoader.swift in Sources */,
 				086EC944248FDB81000DC746 /* URLSessionDataTaskProtocol.swift in Sources */,
+				0800994924A60CDF00B482DB /* AuthResult.swift in Sources */,
+				0800995024A6114100B482DB /* ImageDetailsLoader.swift in Sources */,
 				086EC930248F9893000DC746 /* HTTPClient.swift in Sources */,
+				0800993E24A38D1A00B482DB /* AuthHTTPClient.swift in Sources */,
+				0800995224A6121A00B482DB /* ImageDetailsResult.swift in Sources */,
+				0800993824A3675100B482DB /* HTTPTokenLoader.swift in Sources */,
+				0800994E24A6112100B482DB /* HTTPImageDetailsLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +370,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0800995E24A613D400B482DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 086EC8FF248F97B1000DC746 /* NetworkModule */;
+			targetProxy = 0800995D24A613D400B482DB /* PBXContainerItemProxy */;
+		};
 		086EC90C248F97B1000DC746 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 086EC8FF248F97B1000DC746 /* NetworkModule */;
@@ -246,6 +383,40 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0800996024A613D400B482DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = IntegratedUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.millwright.IntegratedUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0800996124A613D400B482DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = IntegratedUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.millwright.IntegratedUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		086EC912248F97B1000DC746 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -453,6 +624,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0800995F24A613D400B482DB /* Build configuration list for PBXNativeTarget "IntegratedUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0800996024A613D400B482DB /* Debug */,
+				0800996124A613D400B482DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		086EC8FA248F97B1000DC746 /* Build configuration list for PBXProject "NetworkModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

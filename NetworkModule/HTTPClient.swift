@@ -10,6 +10,7 @@ import Foundation
 
 public protocol HTTPClient {
     
-    func get(from url: URL, completion: @escaping (Swift.Result<(Data,HTTPURLResponse), Error>) -> ()) -> URLSessionDataTaskProtocol
+    @discardableResult
+    func get(from urlRequest: URLRequest, completion: @escaping (Swift.Result<(Data,HTTPURLResponse), Error>) -> ()) -> URLSessionDataTaskProtocol
     
 }
