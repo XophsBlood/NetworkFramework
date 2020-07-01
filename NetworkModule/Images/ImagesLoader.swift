@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ImagesLoader {
+public protocol ImagesLoader {
     func getImages(with url: URL, completion: @escaping (Swift.Result<ImagesResult, Error>) -> ())
 }

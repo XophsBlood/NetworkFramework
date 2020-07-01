@@ -12,39 +12,17 @@ import XCTest
 class IntegratedUnitTests: XCTestCase {
     let expectation = XCTestExpectation(description: "Download https://failUrl")
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
     func test_auth() {
         let myURLSession = URLSession(configuration: .default)
         let httpClient = NetworkManager(session: myURLSession)
-        let auth = AuthHTTPClient(httpClient: httpClient)
-        let tokenloader = HTTPTokenLoader(httpCLient: auth)
-        let myurl = URL(string: "http://195.39.233.28:8035/auth")
-        let dictionary = ["apiKey": "23567b218376f79d9415"]
+        let tokenloader = HTTPTokenLoader(httpCLient: httpClient)
+        let auth = AuthHTTPClient(networkManager: httpClient, tokenLoader: tokenloader)
 
-        tokenloader.auth(with: myurl!, params: dictionary) { result in
+        tokenloader.auth() { result in
             switch result {
-            case let .success(auth):
+            case let .success(token):
                 print(AuthHTTPClient.token)
-                print(auth.token)
+                print(token)
             case let .failure(error):
                 print(error)
             }
@@ -59,11 +37,12 @@ class IntegratedUnitTests: XCTestCase {
     func test_images() {
         let myURLSession = URLSession(configuration: .default)
         let httpClient = NetworkManager(session: myURLSession)
-        let auth = AuthHTTPClient(httpClient: httpClient)
-        let tokenloader = HTTPImagesLoader(httpCLient: auth)
+        let tokenloader = HTTPTokenLoader(httpCLient: httpClient)
+        let auth = AuthHTTPClient(networkManager: httpClient, tokenLoader: tokenloader)
+        let imageLoader = HTTPImagesLoader(httpCLient: auth)
         let myurl = URL(string: "http://195.39.233.28:8035/images")
 
-        tokenloader.getImages(with: myurl!) { result in
+        imageLoader.getImages(with: myurl!) { result in
             switch result {
             case let .success(images):
                 print(images.pictures)
@@ -83,11 +62,13 @@ class IntegratedUnitTests: XCTestCase {
     func test_image() {
         let myURLSession = URLSession(configuration: .default)
         let httpClient = NetworkManager(session: myURLSession)
-        let auth = AuthHTTPClient(httpClient: httpClient)
-        let tokenloader = HTTPImageDetailsLoader(httpCLient: auth)
+        let tokenloader = HTTPTokenLoader(httpCLient: httpClient)
+        let auth = AuthHTTPClient(networkManager: httpClient, tokenLoader: tokenloader)
+        let imageDetailsLoader = HTTPImageDetailsLoader(httpCLient: auth)
+
         let myurl = URL(string: "http://195.39.233.28:8035/images/51fbadf55aa5d2966e98")
 
-        tokenloader.getImageDetails(with: myurl!) { result in
+        imageDetailsLoader.getImageDetails(with: myurl!) { result in
             switch result {
             case let .success(imageDetails):
                 print(imageDetails)

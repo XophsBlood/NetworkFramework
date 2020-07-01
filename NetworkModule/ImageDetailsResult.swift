@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct ImageDetailsResult: Codable {
-    let author: String
-    let camera: String
-    let croppedPicture: String
-    let fullPicture: String
-    let id: String
+public struct ImageDetailsResult: Codable {
+    
+    public let author: String
+    public let camera: String
+    public let croppedPicture: String
+    public let fullPicture: String
+    public let id: String
     
     enum CodingKeys: String, CodingKey {
         case croppedPicture = "cropped_picture"
@@ -21,5 +22,13 @@ struct ImageDetailsResult: Codable {
         case author = "author"
         case camera = "camera"
         case id = "id"
+    }
+    
+    public init(author: String, camera: String, croppedPicture: String, fullPicture: String, id: String) {
+        self.author = author
+        self.camera = camera
+        self.croppedPicture = croppedPicture
+        self.fullPicture = fullPicture
+        self.id = id
     }
 }

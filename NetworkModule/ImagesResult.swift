@@ -8,21 +8,32 @@
 
 import Foundation
 
-struct ImagesResult: Codable {
-    let hasMore: Bool
-    let page: Int
-    let pageCount: Int
-    let pictures: [Picture]
+public struct ImagesResult: Codable {
+    public let hasMore: Bool
+    public let page: Int
+    public let pageCount: Int
+    public let pictures: [MyPicture]
+    
+    public init(hasMore: Bool, page: Int, pageCount: Int, pictures: [MyPicture]) {
+        self.hasMore = hasMore
+        self.page = page
+        self.pageCount = pageCount
+        self.pictures = pictures
+    }
 }
 
-struct Picture: Codable {
-    let croppedPictrure: String
-    let id: String
+public struct MyPicture: Codable {
+    public let croppedPictrure: String
+    public let id: String
     
     enum CodingKeys: String, CodingKey {
       case croppedPictrure = "cropped_picture"
       case id = "id"
     }
     
+    public init(croppedPictrure: String, id: String) {
+        self.croppedPictrure = croppedPictrure
+        self.id = id
+    }
     
 }
