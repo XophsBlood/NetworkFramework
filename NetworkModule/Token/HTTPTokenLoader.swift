@@ -10,7 +10,7 @@ import Foundation
 
 public class HTTPTokenLoader: TokenLoader {
     
-    let httpClient: HTTPClient
+    public let httpClient: HTTPClient
     
     let params = ["apiKey": "23567b218376f79d9415"]
     let url = URL(string: "http://195.39.233.28:8035/auth")

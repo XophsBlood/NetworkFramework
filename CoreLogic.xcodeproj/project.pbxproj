@@ -18,12 +18,14 @@
 		0800995024A6114100B482DB /* ImageDetailsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800994F24A6114100B482DB /* ImageDetailsLoader.swift */; };
 		0800995224A6121A00B482DB /* ImageDetailsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800995124A6121A00B482DB /* ImageDetailsResult.swift */; };
 		0800995A24A613D400B482DB /* IntegratedUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800995924A613D400B482DB /* IntegratedUnitTests.swift */; };
-		0800995C24A613D400B482DB /* NetworkModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* NetworkModule.framework */; };
+		0800995C24A613D400B482DB /* CoreLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* CoreLogic.framework */; };
 		0800996424AA69FB00B482DB /* ImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996324AA69FB00B482DB /* ImageDataLoader.swift */; };
 		0800996624AA6A2000B482DB /* HTTPImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996524AA6A2000B482DB /* HTTPImageDataLoader.swift */; };
 		0800996824AA6AC100B482DB /* LoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996724AA6AC100B482DB /* LoaderTests.swift */; };
 		0800996A24AC8B2C00B482DB /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996924AC8B2C00B482DB /* MockHTTPClient.swift */; };
-		086EC90A248F97B1000DC746 /* NetworkModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* NetworkModule.framework */; };
+		0800996E24ADDEBF00B482DB /* AuthHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996D24ADDEBF00B482DB /* AuthHTTPClientTests.swift */; };
+		0800997024ADE11500B482DB /* MockTokenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996F24ADE11500B482DB /* MockTokenLoader.swift */; };
+		086EC90A248F97B1000DC746 /* CoreLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* CoreLogic.framework */; };
 		086EC911248F97B1000DC746 /* NetworkModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 086EC903248F97B1000DC746 /* NetworkModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		086EC930248F9893000DC746 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC92F248F9893000DC746 /* HTTPClient.swift */; };
 		086EC93A248FB616000DC746 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC939248FB616000DC746 /* NetworkManager.swift */; };
@@ -69,10 +71,12 @@
 		0800996524AA6A2000B482DB /* HTTPImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPImageDataLoader.swift; sourceTree = "<group>"; };
 		0800996724AA6AC100B482DB /* LoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderTests.swift; sourceTree = "<group>"; };
 		0800996924AC8B2C00B482DB /* MockHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHTTPClient.swift; sourceTree = "<group>"; };
-		086EC900248F97B1000DC746 /* NetworkModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0800996D24ADDEBF00B482DB /* AuthHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHTTPClientTests.swift; sourceTree = "<group>"; };
+		0800996F24ADE11500B482DB /* MockTokenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenLoader.swift; sourceTree = "<group>"; };
+		086EC900248F97B1000DC746 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		086EC903248F97B1000DC746 /* NetworkModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkModule.h; sourceTree = "<group>"; };
 		086EC904248F97B1000DC746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		086EC909248F97B1000DC746 /* NetworkModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		086EC909248F97B1000DC746 /* CoreLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086EC910248F97B1000DC746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086EC92F248F9893000DC746 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		086EC939248FB616000DC746 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -88,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0800995C24A613D400B482DB /* NetworkModule.framework in Frameworks */,
+				0800995C24A613D400B482DB /* CoreLogic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				086EC90A248F97B1000DC746 /* NetworkModule.framework in Frameworks */,
+				086EC90A248F97B1000DC746 /* CoreLogic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,8 +172,8 @@
 		086EC901248F97B1000DC746 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				086EC900248F97B1000DC746 /* NetworkModule.framework */,
-				086EC909248F97B1000DC746 /* NetworkModuleTests.xctest */,
+				086EC900248F97B1000DC746 /* CoreLogic.framework */,
+				086EC909248F97B1000DC746 /* CoreLogicTests.xctest */,
 				0800995724A613D400B482DB /* IntegratedUnitTests.xctest */,
 			);
 			name = Products;
@@ -203,6 +207,8 @@
 				086EC93B248FC3F1000DC746 /* ReponseTests.swift */,
 				0800996924AC8B2C00B482DB /* MockHTTPClient.swift */,
 				086EC93F248FD970000DC746 /* MockURLSession.swift */,
+				0800996F24ADE11500B482DB /* MockTokenLoader.swift */,
+				0800996D24ADDEBF00B482DB /* AuthHTTPClientTests.swift */,
 				086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */,
 				0800996724AA6AC100B482DB /* LoaderTests.swift */,
 			);
@@ -241,9 +247,9 @@
 			productReference = 0800995724A613D400B482DB /* IntegratedUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		086EC8FF248F97B1000DC746 /* NetworkModule */ = {
+		086EC8FF248F97B1000DC746 /* CoreLogic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 086EC914248F97B1000DC746 /* Build configuration list for PBXNativeTarget "NetworkModule" */;
+			buildConfigurationList = 086EC914248F97B1000DC746 /* Build configuration list for PBXNativeTarget "CoreLogic" */;
 			buildPhases = (
 				086EC8FB248F97B1000DC746 /* Headers */,
 				086EC8FC248F97B1000DC746 /* Sources */,
@@ -254,14 +260,14 @@
 			);
 			dependencies = (
 			);
-			name = NetworkModule;
+			name = CoreLogic;
 			productName = NetworkModule;
-			productReference = 086EC900248F97B1000DC746 /* NetworkModule.framework */;
+			productReference = 086EC900248F97B1000DC746 /* CoreLogic.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		086EC908248F97B1000DC746 /* NetworkModuleTests */ = {
+		086EC908248F97B1000DC746 /* CoreLogicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 086EC917248F97B1000DC746 /* Build configuration list for PBXNativeTarget "NetworkModuleTests" */;
+			buildConfigurationList = 086EC917248F97B1000DC746 /* Build configuration list for PBXNativeTarget "CoreLogicTests" */;
 			buildPhases = (
 				086EC905248F97B1000DC746 /* Sources */,
 				086EC906248F97B1000DC746 /* Frameworks */,
@@ -272,9 +278,9 @@
 			dependencies = (
 				086EC90C248F97B1000DC746 /* PBXTargetDependency */,
 			);
-			name = NetworkModuleTests;
+			name = CoreLogicTests;
 			productName = NetworkModuleTests;
-			productReference = 086EC909248F97B1000DC746 /* NetworkModuleTests.xctest */;
+			productReference = 086EC909248F97B1000DC746 /* CoreLogicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -299,7 +305,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 086EC8FA248F97B1000DC746 /* Build configuration list for PBXProject "NetworkModule" */;
+			buildConfigurationList = 086EC8FA248F97B1000DC746 /* Build configuration list for PBXProject "CoreLogic" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -312,8 +318,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				086EC8FF248F97B1000DC746 /* NetworkModule */,
-				086EC908248F97B1000DC746 /* NetworkModuleTests */,
+				086EC8FF248F97B1000DC746 /* CoreLogic */,
+				086EC908248F97B1000DC746 /* CoreLogicTests */,
 				0800995624A613D400B482DB /* IntegratedUnitTests */,
 			);
 		};
@@ -381,7 +387,9 @@
 			files = (
 				086EC940248FD970000DC746 /* MockURLSession.swift in Sources */,
 				0800996A24AC8B2C00B482DB /* MockHTTPClient.swift in Sources */,
+				0800996E24ADDEBF00B482DB /* AuthHTTPClientTests.swift in Sources */,
 				086EC946248FDDB1000DC746 /* MockURLSessionDataTask.swift in Sources */,
+				0800997024ADE11500B482DB /* MockTokenLoader.swift in Sources */,
 				0800996824AA6AC100B482DB /* LoaderTests.swift in Sources */,
 				086EC93C248FC3F1000DC746 /* ReponseTests.swift in Sources */,
 			);
@@ -392,12 +400,12 @@
 /* Begin PBXTargetDependency section */
 		0800995E24A613D400B482DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 086EC8FF248F97B1000DC746 /* NetworkModule */;
+			target = 086EC8FF248F97B1000DC746 /* CoreLogic */;
 			targetProxy = 0800995D24A613D400B482DB /* PBXContainerItemProxy */;
 		};
 		086EC90C248F97B1000DC746 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 086EC8FF248F97B1000DC746 /* NetworkModule */;
+			target = 086EC8FF248F97B1000DC746 /* CoreLogic */;
 			targetProxy = 086EC90B248F97B1000DC746 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -653,7 +661,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		086EC8FA248F97B1000DC746 /* Build configuration list for PBXProject "NetworkModule" */ = {
+		086EC8FA248F97B1000DC746 /* Build configuration list for PBXProject "CoreLogic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086EC912248F97B1000DC746 /* Debug */,
@@ -662,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		086EC914248F97B1000DC746 /* Build configuration list for PBXNativeTarget "NetworkModule" */ = {
+		086EC914248F97B1000DC746 /* Build configuration list for PBXNativeTarget "CoreLogic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086EC915248F97B1000DC746 /* Debug */,
@@ -671,7 +679,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		086EC917248F97B1000DC746 /* Build configuration list for PBXNativeTarget "NetworkModuleTests" */ = {
+		086EC917248F97B1000DC746 /* Build configuration list for PBXNativeTarget "CoreLogicTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086EC918248F97B1000DC746 /* Debug */,

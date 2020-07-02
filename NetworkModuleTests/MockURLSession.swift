@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import NetworkModule
+@testable import CoreLogic
 
 class MockURLSession: URLSessionProtocol {
     

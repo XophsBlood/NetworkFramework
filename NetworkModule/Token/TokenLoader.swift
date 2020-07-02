@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol TokenLoader {
+    @discardableResult
     func auth(completion: @escaping (Swift.Result<String, Error>) -> ()) -> URLSessionDataTaskProtocol
 }

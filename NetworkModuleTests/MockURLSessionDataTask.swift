@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import NetworkModule
+@testable import CoreLogic
 
 class MockURLSessionDataTask: URLSessionDataTaskProtocol {
     private (set) var counter = 0

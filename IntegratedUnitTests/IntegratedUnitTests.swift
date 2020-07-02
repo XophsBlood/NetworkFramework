@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import NetworkModule
+@testable import CoreLogic
 
 class IntegratedUnitTests: XCTestCase {
     let expectation = XCTestExpectation(description: "Download https://failUrl")

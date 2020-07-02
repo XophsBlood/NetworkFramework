@@ -10,7 +10,7 @@ import Foundation
 
 public class AuthHTTPClient: HTTPClient {
     
-    static var token: String = ""
+    public static var token: String = ""
     
     let networkManager: HTTPClient
     let tokenLoader: TokenLoader

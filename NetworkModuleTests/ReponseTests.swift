@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import NetworkModule
+import CoreLogic
 
 enum SomeError: Error {
     case unexpected
