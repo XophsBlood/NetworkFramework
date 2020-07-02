@@ -10,8 +10,8 @@ import Foundation
 
 public struct AuthResult: Codable {
     
-    let auth: Bool
-    let token: String?
+    public let auth: Bool
+    public let token: String?
     
     public init(auth: Bool, token: String?) {
         self.auth = auth

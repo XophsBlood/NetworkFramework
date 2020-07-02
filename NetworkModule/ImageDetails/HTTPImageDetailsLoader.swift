@@ -19,6 +19,7 @@ public class HTTPImageDetailsLoader: ImageDetailsLoader {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
         httpClient.get(from: urlRequest) { result in
             switch result {
             case let .success(data, _):

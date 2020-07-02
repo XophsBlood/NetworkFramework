@@ -36,8 +36,6 @@ public class AuthHTTPClient: HTTPClient {
             let singedUrlRequest = AuthHTTPClient.singREquest(urlRequest: urlRequest)
             return networkManager.get(from: singedUrlRequest, completion: completion)
         }
-        
-        
     }
     
     static func singREquest(urlRequest: URLRequest) -> URLRequest {

@@ -26,6 +26,7 @@ public class HTTPTokenLoader: TokenLoader {
         urlRequest.httpBody = try! JSONEncoder().encode(params)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
         return httpClient.get(from: urlRequest) { result in
             switch result {
             case let .success(data, _):
