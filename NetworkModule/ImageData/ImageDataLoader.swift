@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ImageDataLoader {
+public protocol ImageDataLoader {
     func getImageData(with url: URL, completion: @escaping (Swift.Result<Data, Error>) -> ())
 }

@@ -26,7 +26,6 @@
 		0800996E24ADDEBF00B482DB /* AuthHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996D24ADDEBF00B482DB /* AuthHTTPClientTests.swift */; };
 		0800997024ADE11500B482DB /* MockTokenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0800996F24ADE11500B482DB /* MockTokenLoader.swift */; };
 		086EC90A248F97B1000DC746 /* CoreLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EC900248F97B1000DC746 /* CoreLogic.framework */; };
-		086EC911248F97B1000DC746 /* NetworkModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 086EC903248F97B1000DC746 /* NetworkModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		086EC930248F9893000DC746 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC92F248F9893000DC746 /* HTTPClient.swift */; };
 		086EC93A248FB616000DC746 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC939248FB616000DC746 /* NetworkManager.swift */; };
 		086EC93C248FC3F1000DC746 /* ReponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC93B248FC3F1000DC746 /* ReponseTests.swift */; };
@@ -74,7 +73,6 @@
 		0800996D24ADDEBF00B482DB /* AuthHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHTTPClientTests.swift; sourceTree = "<group>"; };
 		0800996F24ADE11500B482DB /* MockTokenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenLoader.swift; sourceTree = "<group>"; };
 		086EC900248F97B1000DC746 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		086EC903248F97B1000DC746 /* NetworkModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkModule.h; sourceTree = "<group>"; };
 		086EC904248F97B1000DC746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086EC909248F97B1000DC746 /* CoreLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086EC910248F97B1000DC746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 		086EC902248F97B1000DC746 /* NetworkModule */ = {
 			isa = PBXGroup;
 			children = (
-				086EC903248F97B1000DC746 /* NetworkModule.h */,
 				0800994824A60CDF00B482DB /* AuthResult.swift */,
 				0800994A24A60DE200B482DB /* ImagesResult.swift */,
 				0800995124A6121A00B482DB /* ImageDetailsResult.swift */,
@@ -222,7 +219,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				086EC911248F97B1000DC746 /* NetworkModule.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,9 +564,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7D8KRJN92K;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -584,6 +582,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.millwright.NetworkModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -593,9 +592,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7D8KRJN92K;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -609,6 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.millwright.NetworkModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

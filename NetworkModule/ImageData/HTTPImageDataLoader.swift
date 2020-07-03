@@ -8,14 +8,14 @@
 
 import Foundation
 
-class HTTPImageDataLoader: ImageDataLoader {
+public class HTTPImageDataLoader: ImageDataLoader {
     let httpClient: HTTPClient
     
-    init(httpCLient: HTTPClient) {
+    public init(httpCLient: HTTPClient) {
         self.httpClient = httpCLient
     }
     
-    func getImageData(with url: URL, completion: @escaping (Result<Data, Error>) -> ()) {
+    public func getImageData(with url: URL, completion: @escaping (Result<Data, Error>) -> ()) {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
