@@ -15,12 +15,12 @@ public class HTTPImageDataLoader: ImageDataLoader {
         self.httpClient = httpCLient
     }
     
-    public func getImageData(with url: URL, completion: @escaping (Result<Data, Error>) -> ()) {
+    public func getImageData(with url: URL, completion: @escaping (Result<Data, Error>) -> ()) -> URLSessionDataTaskProtocol {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
-        httpClient.get(from: urlRequest) { result in
+        return httpClient.get(from: urlRequest) { result in
             switch result {
             case let .success(data, _):
                 completion(.success(data))
