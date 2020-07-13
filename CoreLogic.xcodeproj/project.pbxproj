@@ -33,6 +33,12 @@
 		086EC942248FDADF000DC746 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC941248FDADF000DC746 /* URLSessionProtocol.swift */; };
 		086EC944248FDB81000DC746 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC943248FDB81000DC746 /* URLSessionDataTaskProtocol.swift */; };
 		086EC946248FDDB1000DC746 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */; };
+		08A5BBC224B7507900D9F9C6 /* ImageDataLoaderCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5BBC124B7507900D9F9C6 /* ImageDataLoaderCompositor.swift */; };
+		08A5BBC424B750F800D9F9C6 /* LocalImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5BBC324B750F800D9F9C6 /* LocalImageDataLoader.swift */; };
+		08A5BBC624B7514000D9F9C6 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5BBC524B7514000D9F9C6 /* Store.swift */; };
+		08A5BBC824B75B2500D9F9C6 /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5BBC724B75B2500D9F9C6 /* PersistenceTests.swift */; };
+		08A5BBCA24B8731A00D9F9C6 /* TempImageDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5BBC924B8731A00D9F9C6 /* TempImageDataEntity.swift */; };
+		08A5BBCC24BC2E1900D9F9C6 /* ImagesFeedLoaderCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5BBCB24BC2E1900D9F9C6 /* ImagesFeedLoaderCompositor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,12 @@
 		086EC941248FDADF000DC746 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		086EC943248FDB81000DC746 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		08A5BBC124B7507900D9F9C6 /* ImageDataLoaderCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoaderCompositor.swift; sourceTree = "<group>"; };
+		08A5BBC324B750F800D9F9C6 /* LocalImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageDataLoader.swift; sourceTree = "<group>"; };
+		08A5BBC524B7514000D9F9C6 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		08A5BBC724B75B2500D9F9C6 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
+		08A5BBC924B8731A00D9F9C6 /* TempImageDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempImageDataEntity.swift; sourceTree = "<group>"; };
+		08A5BBCB24BC2E1900D9F9C6 /* ImagesFeedLoaderCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesFeedLoaderCompositor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +195,7 @@
 				0800994824A60CDF00B482DB /* AuthResult.swift */,
 				0800994A24A60DE200B482DB /* ImagesResult.swift */,
 				0800995124A6121A00B482DB /* ImageDetailsResult.swift */,
+				08A5BBC024B7505600D9F9C6 /* Cache */,
 				0800996224AA69BF00B482DB /* ImageData */,
 				0800994C24A6110200B482DB /* ImageDetails */,
 				0800994024A3920C00B482DB /* Images */,
@@ -208,8 +221,21 @@
 				0800996D24ADDEBF00B482DB /* AuthHTTPClientTests.swift */,
 				086EC945248FDDB1000DC746 /* MockURLSessionDataTask.swift */,
 				0800996724AA6AC100B482DB /* LoaderTests.swift */,
+				08A5BBC724B75B2500D9F9C6 /* PersistenceTests.swift */,
 			);
 			path = NetworkModuleTests;
+			sourceTree = "<group>";
+		};
+		08A5BBC024B7505600D9F9C6 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				08A5BBC124B7507900D9F9C6 /* ImageDataLoaderCompositor.swift */,
+				08A5BBCB24BC2E1900D9F9C6 /* ImagesFeedLoaderCompositor.swift */,
+				08A5BBC324B750F800D9F9C6 /* LocalImageDataLoader.swift */,
+				08A5BBC524B7514000D9F9C6 /* Store.swift */,
+				08A5BBC924B8731A00D9F9C6 /* TempImageDataEntity.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,18 +384,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A5BBCA24B8731A00D9F9C6 /* TempImageDataEntity.swift in Sources */,
 				0800993A24A3678600B482DB /* TokenLoader.swift in Sources */,
 				0800994B24A60DE200B482DB /* ImagesResult.swift in Sources */,
 				086EC942248FDADF000DC746 /* URLSessionProtocol.swift in Sources */,
 				0800994224A3922600B482DB /* ImagesLoader.swift in Sources */,
+				08A5BBC424B750F800D9F9C6 /* LocalImageDataLoader.swift in Sources */,
 				086EC93A248FB616000DC746 /* NetworkManager.swift in Sources */,
 				0800994424A393D000B482DB /* HTTPImagesLoader.swift in Sources */,
 				0800996424AA69FB00B482DB /* ImageDataLoader.swift in Sources */,
+				08A5BBCC24BC2E1900D9F9C6 /* ImagesFeedLoaderCompositor.swift in Sources */,
 				086EC944248FDB81000DC746 /* URLSessionDataTaskProtocol.swift in Sources */,
 				0800996624AA6A2000B482DB /* HTTPImageDataLoader.swift in Sources */,
+				08A5BBC224B7507900D9F9C6 /* ImageDataLoaderCompositor.swift in Sources */,
 				0800994924A60CDF00B482DB /* AuthResult.swift in Sources */,
 				0800995024A6114100B482DB /* ImageDetailsLoader.swift in Sources */,
 				086EC930248F9893000DC746 /* HTTPClient.swift in Sources */,
+				08A5BBC624B7514000D9F9C6 /* Store.swift in Sources */,
 				0800993E24A38D1A00B482DB /* AuthHTTPClient.swift in Sources */,
 				0800995224A6121A00B482DB /* ImageDetailsResult.swift in Sources */,
 				0800993824A3675100B482DB /* HTTPTokenLoader.swift in Sources */,
@@ -382,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				086EC940248FD970000DC746 /* MockURLSession.swift in Sources */,
+				08A5BBC824B75B2500D9F9C6 /* PersistenceTests.swift in Sources */,
 				0800996A24AC8B2C00B482DB /* MockHTTPClient.swift in Sources */,
 				0800996E24ADDEBF00B482DB /* AuthHTTPClientTests.swift in Sources */,
 				086EC946248FDDB1000DC746 /* MockURLSessionDataTask.swift in Sources */,

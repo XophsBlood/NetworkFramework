@@ -9,7 +9,7 @@
 import XCTest
 import CoreLogic
 
-class  LoaderTests: XCTestCase {
+class LoaderTests: XCTestCase {
     
     struct UncorrectStruct: Codable {
         let why: Int
@@ -61,7 +61,8 @@ class  LoaderTests: XCTestCase {
         let imageResult = ImagesResult(hasMore: true, page: 1, pageCount: 2, pictures: [picture] )
         
         let networkManager = getNetworkManager(structure: imageResult)
-        let imagesLoader = HTTPImagesLoader(httpCLient: networkManager)
+        let local = LocalImageDataLoader(store: Store())
+        let imagesLoader = HTTPImagesLoader(httpCLient: networkManager, localImageDataLoader: local)
         
         expect(url: url, imagesLoader, expectedResult: imageResult)
     }
@@ -71,7 +72,8 @@ class  LoaderTests: XCTestCase {
         let authResult = AuthResult(auth: true, token: token)
         
         let networkManager = getNetworkManager(structure: authResult)
-        let imagesLoader = HTTPImagesLoader(httpCLient: networkManager)
+        let local = LocalImageDataLoader(store: Store())
+        let imagesLoader = HTTPImagesLoader(httpCLient: networkManager, localImageDataLoader: local)
         
         expectFail(url: url, imagesLoader)
     }

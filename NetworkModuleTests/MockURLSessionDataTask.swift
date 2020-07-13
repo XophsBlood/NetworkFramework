@@ -10,6 +10,10 @@ import Foundation
 @testable import CoreLogic
 
 class MockURLSessionDataTask: URLSessionDataTaskProtocol {
+    func cancel() {
+        cancel()
+    }
+    
     private (set) var counter = 0
     func resume() {
         counter += 1

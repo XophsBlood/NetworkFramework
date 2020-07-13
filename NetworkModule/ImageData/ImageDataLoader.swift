@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol ImageDataLoader {
-    func getImageData(with url: URL, completion: @escaping (Swift.Result<Data, Error>) -> ()) -> URLSessionDataTaskProtocol
+    func getImageData(with url: URL, completion: @escaping (Swift.Result<Data, Error>) -> ()) -> URLSessionDataTaskProtocol?
 }
