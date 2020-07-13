@@ -25,16 +25,6 @@ public class HTTPImageDataLoader: ImageDataLoader {
         return httpClient.get(from: urlRequest) { result in
             switch result {
             case let .success(data, _):
-                if let pageNumber = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first?.value {
-                    if let mainCacheData = self.localImageDataLoader.store.getMainCacheData(page: pageNumber), let tempImagesDataEntity = try? JSONDecoder().decode(TempImagesDataEntity.self, from: mainCacheData) {
-                        let temp = tempImagesDataEntity
-                        temp.imagesData.append(url)
-                        if let newData = try? JSONEncoder().encode(temp) {
-                            self.localImageDataLoader.store.saveMain(data: newData, page: pageNumber)
-                        }
-                    }
-                }
-                self.localImageDataLoader.cache(with: url, and: data)
                 completion(.success(data))
             case let .failure(error):
                 completion(.failure(error))

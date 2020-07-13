@@ -18,24 +18,26 @@ public class ImagesFeedLoaderCompositor: ImagesLoader {
     }
     
     public func getImages(with url: URL, completion: @escaping (Result<ImagesResult, Error>) -> ()) {
+        let pageNumber = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first?.value ?? "1"
         
-        if let pageNumber = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first?.value, localImageDataLoader.store.chechExpirationDate(page: pageNumber) {
-            
-            if let mainCacheData = localImageDataLoader.store.getMainCacheData(page: pageNumber), let tempEntity = try? JSONDecoder().decode(TempImagesDataEntity.self, from: mainCacheData) {
-                    completion(.success(tempEntity.imagesResult))
-                    return
-    
-            }
-        } else if URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first?.value == nil, localImageDataLoader.store.chechExpirationDate(page: "1") {
-            
-            if let mainCacheData = localImageDataLoader.store.getMainCacheData(page: "1"), let tempEntity = try? JSONDecoder().decode(TempImagesDataEntity.self, from: mainCacheData) {
-                            completion(.success(tempEntity.imagesResult))
-                            return
-            
-                    }
+        if localImageDataLoader.store.chechExpirationDate(page: pageNumber), let mainCacheData = localImageDataLoader.store.getMainCacheData(page: pageNumber), let tempEntity = try? JSONDecoder().decode(TempImagesDataEntity.self, from: mainCacheData) {
+                        completion(.success(tempEntity.imagesResult))
+                        return
+        
         }
         
-        imagesLoader.getImages(with: url, completion: completion)
+        
+        imagesLoader.getImages(with: url) { result in
+            switch result {
+            case let .success(imagesResult):
+                let imagesCacheEntity = TempImagesDataEntity(cacheTime: Date().timeIntervalSinceReferenceDate, imagesResult: imagesResult)
+                let data = try? JSONEncoder().encode(imagesCacheEntity)
+                self.localImageDataLoader.store.clearCache(page: pageNumber)
+                self.localImageDataLoader.store.saveMain(data: data!, page: pageNumber)
+            case .failure(_):
+                break
+            }
+        }
     }
     
 }
