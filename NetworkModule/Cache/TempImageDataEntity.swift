@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class TempImagesDataEntity: Codable {
+class TempImagesDataEntity: Codable {
     var imagesData: [URL] = []
     let cacheTime: TimeInterval
-    public var imagesResult: ImagesResult
+    var imagesResult: ImagesResult
     
-    public init( cacheTime: TimeInterval, imagesResult: ImagesResult) {
+    init( cacheTime: TimeInterval, imagesResult: ImagesResult) {
         self.cacheTime = cacheTime
         self.imagesResult = imagesResult
     }

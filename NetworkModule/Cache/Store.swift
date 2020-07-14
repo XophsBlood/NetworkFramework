@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Store: Cachable {
+public class Store: ImageStore {
     private let userDefault = UserDefaults.standard
     static let mainCacheKey = "MainCache"
     private let maxExpirationDate: TimeInterval = 10000
@@ -16,6 +16,7 @@ public class Store: Cachable {
     
     public func save(data: Data, url: URL) {
         userDefault.set(data, forKey: url.absoluteString)
+        
     }
     
     public func saveMain(data: Data, page: String) {
@@ -61,7 +62,7 @@ public class Store: Cachable {
     }
 }
 
-public protocol Cachable {
+public protocol ImageStore {
     func saveMain(data: Data, page: String)
     func clearCache(page: String)
     func save(data: Data, url: URL)

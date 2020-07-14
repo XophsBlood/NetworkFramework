@@ -12,53 +12,46 @@ import CoreLogic
 class PersistenceTests: XCTestCase {
     
     let url = URL(string: "http://moc")!
+    let antoherImagesResult = ImagesResult(hasMore: false, page: 1, pageCount: 1, pictures: [])
 
-    func getDataLoaders<T: Encodable>(structure: T) -> (LocalImageDataLoader, HTTPImagesLoader) {
-        let session = MockURLSession()
-        let data = try! JSONEncoder().encode(structure)
-        let networkManager = MockHTTPClient(session: session, data: data)
-        memoryLeakTrack(networkManager)
+    
+    func getLocalLoader() -> (Store, Data) {
         let store = Store()
-        let localImageDataLoader = LocalImageDataLoader(store: store)
-        let imagesLoader = HTTPImagesLoader(httpCLient: networkManager, localImageDataLoader: localImageDataLoader)
-        
-        return (localImageDataLoader, imagesLoader)
+        let data = try! JSONEncoder().encode(antoherImagesResult)
+        store.clearData(with: url)
+        return (store, data)
     }
     
-    func test_cache_clear_and_add() {
-        let imagesResult = ImagesResult(hasMore: true, page: 1, pageCount: 1, pictures: [])
-        let (localImageDataLoader, imagesLoader) = getDataLoaders(structure: imagesResult)
-        let expectedData = try! JSONEncoder().encode(imagesResult)
-        localImageDataLoader.store.clearCache(page: "1")
-        imagesLoader.getImages(with: url) { result in
-            switch result {
-            case let .success(data):
-                print(data)
-                let newData = try! JSONDecoder().decode(TempImagesDataEntity.self, from: localImageDataLoader.store.getMainCacheData(page: "1")!)
-                let encoded = try! JSONEncoder().encode(newData.imagesResult)
-                print(newData)
-                XCTAssertEqual(expectedData, encoded)
-                localImageDataLoader.store.clearCache(page: "1")
-            case let .failure(error):
-                XCTFail()
-            }
-        }
-       
+    func test_cache_add() {
+        let (store, expectedData) = getLocalLoader()
         
-        let antoherImagesResult = ImagesResult(hasMore: false, page: 1, pageCount: 1, pictures: [])
-        let (anotherLocalImageDataLoader, anotherImagesLoader) = getDataLoaders(structure: antoherImagesResult)
-        let anotherExpectedData = try! JSONEncoder().encode(antoherImagesResult)
-        
-        anotherImagesLoader.getImages(with: url) { result in
-            switch result {
-            case let .success(data):
-                let newData = try! JSONDecoder().decode(TempImagesDataEntity.self, from: localImageDataLoader.store.getMainCacheData(page: "1")!)
-                let encoded = try! JSONEncoder().encode(newData.imagesResult)
-                XCTAssertEqual(anotherExpectedData, encoded)
-            case let .failure(error):
-                XCTFail()
-            }
-        }
+        store.save(data: expectedData, url: url)
+        let data = store.getData(with: url)
+        XCTAssertEqual(data, expectedData)
     }
+    
+    func test_cache_empty() {
+        let (store, _) = getLocalLoader()
+        XCTAssertNil(store.getData(with: url))
+    }
+    
+    func test_cache_clear() {
+        let (store, _) = getLocalLoader()
+        
+        store.clearData(with: url)
+        XCTAssertNil(store.getData(with: url))
+        store.clearData(with: url)
+        XCTAssertNil(store.getData(with: url))
+        
+    }
+    
+    func test_cache_can_be_deleted() {
+        let (store, expectedData) = getLocalLoader()
+        store.save(data: expectedData, url: url)
+        store.clearData(with: url)
+        XCTAssertNil(store.getData(with: url))
+        
+    }
+
 
 }
