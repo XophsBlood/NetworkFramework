@@ -32,7 +32,7 @@ public class Store: ImageStore {
         }
     }
     
-    public func chechExpirationDate(page: String) -> Bool {
+    public func checkExpirationDate(page: String) -> Bool {
         guard let data = userDefault.data(forKey: page)  else {
             return false
         }
@@ -67,7 +67,7 @@ public protocol ImageStore {
     func clearCache(page: String)
     func save(data: Data, url: URL)
     func getData(with url: URL) -> Data?
-    func chechExpirationDate(page: String) -> Bool
+    func checkExpirationDate(page: String) -> Bool
     func getMainCacheData(page: String) -> Data?
     func clearData(with url: URL)
 }

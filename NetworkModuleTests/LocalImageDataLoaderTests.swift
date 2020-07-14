@@ -21,34 +21,36 @@ class LocalImageDataLoaderTests: XCTestCase {
     func testGetImageDataCalls() {
         let (localImageDataLoader, mockStore) = getStoreAndLocalLoader()
         localImageDataLoader.getImageData(with: URL(string: "http://url")!)
-        XCTAssertTrue(mockStore.arrayStr.contains("getData"))
+        let expectedArray: [CalledMethod] = [.getData]
+        XCTAssertEqual(expectedArray, mockStore.arrayStr)
     }
     
     func testCacheCalls() {
         let (localImageDataLoader, mockStore) = getStoreAndLocalLoader()
         localImageDataLoader.cache(with: url,  and: Data())
-        XCTAssertTrue(mockStore.arrayStr.contains("getMainCacheData"))
-        XCTAssertTrue(mockStore.arrayStr.contains("save"))
+        let expectedArray: [CalledMethod] = [.getMainCacheData, .save]
+        XCTAssertEqual(expectedArray, mockStore.arrayStr)
     }
     
     func testSaveMainCalls() {
         let (localImageDataLoader, mockStore) = getStoreAndLocalLoader()
         localImageDataLoader.saveMain(imagesResult: ImagesResult(hasMore: true, page: 1, pageCount: 1, pictures: []))
-        XCTAssertTrue(mockStore.arrayStr.contains("clearCache"))
-        XCTAssertTrue(mockStore.arrayStr.contains("saveMain"))
+        let expectedArray: [CalledMethod] = [.clearCache, .saveMain]
+        XCTAssertEqual(expectedArray, mockStore.arrayStr)
     }
     
     func testGetImagesCalls() {
         let (localImageDataLoader, mockStore) = getStoreAndLocalLoader()
         localImageDataLoader.getImages(with: url) {_ in }
-        XCTAssertTrue(mockStore.arrayStr.contains("chechExpirationDate"))
-        XCTAssertTrue(mockStore.arrayStr.contains("getMainCacheData"))
+        let expectedArray: [CalledMethod] = [.checkExpirationDate, .getMainCacheData]
+        XCTAssertEqual(expectedArray, mockStore.arrayStr)
     }
     
     func testGetImageDataCalls_Protocol() {
         let (localImageDataLoader, mockStore) = getStoreAndLocalLoader()
         localImageDataLoader.getImageData(with: url) {_ in }
-        XCTAssertTrue(mockStore.arrayStr.contains("getData"))
+        let expectedArray: [CalledMethod] = [.getData]
+        XCTAssertEqual(expectedArray, mockStore.arrayStr)
         
     }
 }

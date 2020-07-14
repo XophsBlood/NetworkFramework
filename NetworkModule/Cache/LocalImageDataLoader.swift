@@ -43,9 +43,10 @@ public class LocalImageDataLoader: ImagesLoader, ImageDataLoader {
     public func getImages(with url: URL, completion: @escaping (Result<ImagesResult, Error>) -> ()) {
         let pageNumber = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first?.value ?? "1"
         
-        if let entity = getTempEntity(for: pageNumber) {
+        if let entity = getTempEntity(for: pageNumber), store.checkExpirationDate(page: pageNumber) {
             completion(.success(entity.imagesResult))
         } else {
+            store.clearCache(page: pageNumber)
             completion(.failure(NSError()))
         }
         
@@ -62,7 +63,7 @@ public class LocalImageDataLoader: ImagesLoader, ImageDataLoader {
     }
     
     private func getTempEntity(for page: String) -> TempImagesDataEntity? {
-        if store.chechExpirationDate(page: page), let mainCacheData = store.getMainCacheData(page: page), let tempEntity = try? JSONDecoder().decode(TempImagesDataEntity.self, from: mainCacheData) {
+        if store.checkExpirationDate(page: page), let mainCacheData = store.getMainCacheData(page: page), let tempEntity = try? JSONDecoder().decode(TempImagesDataEntity.self, from: mainCacheData) {
                         
             return tempEntity
         
